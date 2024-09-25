@@ -15,13 +15,13 @@ def function_a():
       print("Inside function_a and lock_b acquired")
   
 def function_b():
-  print("Inside function_b and trying to acquire lock_b")
-  with lock_b:
-    print("Inside function_b and lock_b acquired")
+  print("Inside function_b and trying to acquire lock_a")
+  with lock_a:
+    print("Inside function_b and lock_a acquired")
     time.sleep(1)
-    print("Inside function_b and trying to acquire lock_a")
-    with lock_a:
-      print("Inside function_b and lock_a acquired")
+    print("Inside function_b and trying to acquire lock_b")
+    with lock_b:
+      print("Inside function_b and lock_b acquired")
   
 thread1 = threading.Thread(target=function_a)
 thread2 = threading.Thread(target=function_b)
